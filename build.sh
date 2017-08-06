@@ -7,20 +7,30 @@ MYIMAGE=192.168.2.8:5000/springboot/springboot-jpa
 # uncomment if you need push
 #docker login 192.168.1.2:8082 -u admin -p admin123
 
+containerName=springboot-jpa
+x=`docker ps | grep '$containerName' | wc -l`
+
+if [ $x = 1 ] ; then
 # stop all container
-docker kill springboot-jpa
+    docker kill $containerName
 
 # remove all container
-docker rm springboot-jpa
+    docker rm $containerName
+fi
 
 # remove old images
-docker images | grep 192.168.2.8:5000/springboot/springboot-jpa | awk '{print $3}' | xargs docker rmi
+
+dockerImage=`docker images | grep 192.168.2.8:5000/springboot/springboot-jpa | awk '{print $3}'`
+
+if [ "$dockerImage"  ] ; then
+    docker rmi $dockerImage
+fi
 
 # build jar and image
 mvn package -e -X docker:build -DskipTest
 
 # running container
-docker run -dp 8080:8080 --name springboot-jpa ${MYIMAGE}
+docker run -dp 8080:8080 --name $containerName ${MYIMAGE}
 
 # push image
 #docker push ${MYIMAGE}
