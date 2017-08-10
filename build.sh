@@ -8,7 +8,7 @@ MYIMAGE=192.168.2.100:5000/springboot/springboot-jpa
 #docker login 192.168.1.2:8082 -u admin -p admin123
 
 containerName=springboot-jpa
-x=`docker ps | grep '$containerName' | wc -l`
+x=`docker ps -a | grep '$containerName' | wc -l`
 
 if [ $x = 1 ] ; then
 # stop all container
