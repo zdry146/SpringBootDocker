@@ -12,7 +12,11 @@ x=`docker ps -a | grep "$containerName" | wc -l`
 
 if [ $x = 1 ] ; then
 # stop all container
-    docker kill $containerName
+    y=`docker ps  | grep "$containerName" | wc -l`
+
+    if [ $y = 1 ] ; then
+        docker kill $containerName
+    fi
 
 # remove all container
     docker rm $containerName
