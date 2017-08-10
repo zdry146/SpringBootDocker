@@ -2,7 +2,7 @@
 
 source /etc/profile
 
-MYIMAGE=192.168.2.8:5000/springboot/springboot-jpa
+MYIMAGE=192.168.2.100:5000/springboot/springboot-jpa
 
 # uncomment if you need push
 #docker login 192.168.1.2:8082 -u admin -p admin123
@@ -20,7 +20,7 @@ fi
 
 # remove old images
 
-dockerImage=`docker images | grep 192.168.2.8:5000/springboot/springboot-jpa | awk '{print $3}'`
+dockerImage=`docker images | grep $MYIMAGE | awk '{print $3}'`
 
 if [ "$dockerImage"  ] ; then
     docker rmi $dockerImage
@@ -33,6 +33,6 @@ mvn package -e -X docker:build -DskipTest
 docker run -dp 8080:8080 --name $containerName ${MYIMAGE}
 
 # push image
-#docker push ${MYIMAGE}
+docker push ${MYIMAGE}
 
 
