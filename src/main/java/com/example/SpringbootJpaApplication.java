@@ -39,6 +39,12 @@ public class SpringbootJpaApplication {
 		return personRepository.count();
 	}
 
+	//endpoint for get person by age
+	@RequestMapping (value = "/age/{age}")
+	public List<Person> getPersonByAge(@PathVariable("age") int age) {
+		return personRepository.findByAge(age);
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootJpaApplication.class, args);
 	}

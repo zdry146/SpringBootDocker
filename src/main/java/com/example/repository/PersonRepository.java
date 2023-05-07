@@ -80,4 +80,5 @@ public interface PersonRepository extends JpaRepository<Person, Long>{
     Person findOneByName(String name);
 
 
+    List<Person> findByAge(int age);
 }
