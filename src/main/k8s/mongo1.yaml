@@ -32,10 +32,10 @@ spec:
             - mongod
             - "--replSet=rs0"
             - "--bind_ip_all"
-            - "--port=27018"
+            - "--port=27017"
             - "--dbpath=/data/db"
           ports:
-            - containerPort: 27018
+            - containerPort: 27017
           volumeMounts:
             - name: mongo-secrets
               mountPath: /etc/secrets
@@ -61,5 +61,5 @@ spec:
     app: rs0-mongo1
   ports:
     - protocol: TCP
-      port: 27018
-      targetPort: 27018
+      port: 27017
+      targetPort: 27017

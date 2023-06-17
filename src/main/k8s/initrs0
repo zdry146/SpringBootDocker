@@ -1,1 +1,4 @@
-rs.initiate({_id: "rs0", members: [{_id: 0, host: "rs0-mongo0:27017"}, {_id: 1, host: "rs0-mongo1:27018"}, {_id: 2, host: "rs0-mongo2:27019"} ]})
+rs.initiate({_id: "rs0", members: [{_id: 0, host: "rs0-mongo0:27017"}, {_id: 1, host: "rs0-mongo1:27017"}, {_id: 2, host: "rs0-mongo2:27017"} ]})
+rs.reconfig({_id: "rs0", members: [{_id: 0, host: "rs0-mongo0:27017"}, {_id: 1, host: "rs0-mongo1:27017"}, {_id: 2, host: "rs0-mongo2:27017"} ]})
+
+rs0-mongo0, rs0-mongo1, rs0-mongo2
