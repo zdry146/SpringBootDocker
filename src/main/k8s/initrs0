@@ -1,4 +1,21 @@
+kubectl delete statefulset rs0-mongo0
+kubectl delete statefulset rs0-mongo1
+kubectl delete statefulset rs0-mongo2
+
+kubectl apply -f .\mongo0.yaml
+kubectl apply -f .\mongo1.yaml
+kubectl apply -f .\mongo2.yaml
+
 rs.initiate({_id: "rs0", members: [{_id: 0, host: "rs0-mongo0:27017"}, {_id: 1, host: "rs0-mongo1:27017"}, {_id: 2, host: "rs0-mongo2:27017"} ]})
 rs.reconfig({_id: "rs0", members: [{_id: 0, host: "rs0-mongo0:27017"}, {_id: 1, host: "rs0-mongo1:27017"}, {_id: 2, host: "rs0-mongo2:27017"} ]})
 
+kubectl get statefulset
+kubectl get services
+
 rs0-mongo0, rs0-mongo1, rs0-mongo2
+
+rs.remove("rs0-mongo1:27018")
+rs.remove("rs0-mongo2:27019")
+
+
+
