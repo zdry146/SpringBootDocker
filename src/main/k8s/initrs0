@@ -17,5 +17,7 @@ rs0-mongo0, rs0-mongo1, rs0-mongo2
 rs.remove("rs0-mongo1:27018")
 rs.remove("rs0-mongo2:27019")
 
+mongodb://rs0-mongo0:27017,rs0-mongo1:27017,rs0-mongo2:27017?replicaSet=rs0
+
 
 

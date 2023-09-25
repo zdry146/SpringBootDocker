@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springboot
+  name: socialserver
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: springboot
+      app: socialserver
   template:
     metadata:
       labels:
-        app: springboot
+        app: socialserver
     spec:
       containers:
-        - name: springboot
-          image: localhost:5000/springboot:latest
+        - name: socialserver
+          image: mike-virtual-machine1:5000/socialserver:v1
           ports:
             - containerPort: 8080
 
@@ -22,12 +22,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: springboot
+  name: socialserver
 spec:
   selector:
-    app: springboot
+    app: socialserver
   ports:
     - name: http
-      port: 80
+      port: 8080
       targetPort: 8080
   type: LoadBalancer

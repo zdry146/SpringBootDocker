@@ -1,4 +1,4 @@
-package social_server;
+package social.server;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -6,13 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = { MongoAutoConfiguration.class})
 @RestController
 public class SocialService {
 	static final String version = "0.0.1";

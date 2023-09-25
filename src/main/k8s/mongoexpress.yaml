@@ -14,16 +14,30 @@ spec:
     spec:
       containers:
         - name: mongo-express
-          image: mongo-express
+          image: mongo-express:0.54.0
           ports:
             - containerPort: 8081
           env:
             - name: ME_CONFIG_MONGODB_SERVER
-              value: rs0-mongo0
+              value: rs0-mongo0:27017,rs0-mongo1:27017,rs0-mongo2
+            - name: ME_CONFIG_MONGODB_ENABLE_REPLICA_SET
+              value: 'true'
+            - name: ME_CONFIG_REPLICA_SET
+              value: 'rs0'
+            - name: ME_CONFIG_USE_UNIFIED_TOPOLOGY
+              value: 'true'
             - name: ME_CONFIG_BASICAUTH_USERNAME
               value: mongodb
             - name: ME_CONFIG_BASICAUTH_PASSWORD
               value: mongodb
+#            - name: ME_CONFIG_MONGODB_ENABLE_ADMIN
+#              value: 'true'
+#            - name: ME_CONFIG_MONGODB_AUTH_DATABASE
+#              value: 'admin'
+#            - name: ME_CONFIG_MONGODB_AUTH_USERNAME
+#              value: 'mongodb'
+#            - name: ME_CONFIG_MONGODB_AUTH_PASSWORD
+#              value: 'mongodb'
 
 ---
 

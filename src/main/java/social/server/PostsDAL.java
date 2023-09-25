@@ -1,4 +1,4 @@
-package social_server;
+package social.server;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;

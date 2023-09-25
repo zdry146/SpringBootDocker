@@ -6,7 +6,7 @@ FROM docker.io/library/openjdk:8
 
 VOLUME /tmp
 
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=./*.jar
 COPY ${JAR_FILE} app.jar
 
 #sh -c 'touch /app.jar'
