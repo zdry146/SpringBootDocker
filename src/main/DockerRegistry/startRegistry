@@ -3,3 +3,12 @@ docker run -d -p 5000:5000 --restart=always --name registry \
   -v /q/dockerRegistryConfig.yml:/etc/docker/registry/config.yml \
   registry:2
 
+docker run -d \
+   --restart=always \
+   --name registry \
+   -v `pwd`/certs:/root/certs \
+   -e REGISTRY_HTTP_ADDR=0.0.0.0:5000 \
+   -e REGISTRY_HTTP_TLS_CERTIFICATE=/root/certs/domain.crt \
+   -e REGISTRY_HTTP_TLS_KEY=/root/certs/domain.key \
+   -p 5000:5000 \
+   registry:2
