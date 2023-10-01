@@ -34,7 +34,7 @@
 					}
 				},
 				"url": {
-					"raw": "0.0.0.0:4567/users",
+					"raw": "social.service.cn:30080/users",
 					"host": [
 						"0",
 						"0",
@@ -55,7 +55,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/testuser{{oldSequence}}/followers/testuser{{sequence}}",
+					"raw": "social.service.cn:30080/users/testuser{{oldSequence}}/followers/testuser{{sequence}}",
 					"host": [
 						"0",
 						"0",
@@ -88,7 +88,7 @@
 					}
 				},
 				"url": {
-					"raw": "0.0.0.0:4567/users/testuser{{sequence}}/posts",
+					"raw": "social.service.cn:30080/users/testuser{{sequence}}/posts",
 					"host": [
 						"0",
 						"0",

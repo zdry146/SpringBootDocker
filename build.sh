@@ -34,7 +34,7 @@ fi
 mvn package -e -X docker:build -DskipTest
 
 # running container
-docker run -dp 8080:8080 --name $containerName ${MYIMAGE}
+docker run -dp 80:80 --name $containerName ${MYIMAGE}
 
 # push image
 #docker push ${MYIMAGE}

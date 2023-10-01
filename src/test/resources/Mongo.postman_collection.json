@@ -14,7 +14,7 @@
 						"exec": [
 							"var sequence = pm.globals.get(\"sequence\");\r",
 							"pm.globals.set(\"oldSequence\", sequence);\r",
-							"sequence = sequence + 1\r",
+							"sequence = parseInt(sequence) + 1\r",
 							"pm.globals.set(\"sequence\", sequence);"
 						],
 						"type": "text/javascript"
@@ -34,7 +34,7 @@
 					}
 				},
 				"url": {
-					"raw": "0.0.0.0:4567/users",
+					"raw": "social.service.cn:30080/users",
 					"host": [
 						"0",
 						"0",
@@ -55,7 +55,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/profile",
+					"raw": "social.service.cn:30080/users/mike/profile",
 					"host": [
 						"0",
 						"0",
@@ -78,7 +78,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/followers/testuser{{sequence}}",
+					"raw": "social.service.cn:30080/users/mike/followers/testuser{{sequence}}",
 					"host": [
 						"0",
 						"0",
@@ -102,7 +102,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/testuser{{oldSequence}}/followers/testuser{{sequence}}",
+					"raw": "social.service.cn:30080/users/testuser{{oldSequence}}/followers/testuser{{sequence}}",
 					"host": [
 						"0",
 						"0",
@@ -126,7 +126,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/followers",
+					"raw": "social.service.cn:30080/users/mike/followers",
 					"host": [
 						"0",
 						"0",
@@ -149,7 +149,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/followers_count",
+					"raw": "social.service.cn:30080/users/mike/followers_count",
 					"host": [
 						"0",
 						"0",
@@ -172,7 +172,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/following",
+					"raw": "social.service.cn:30080/users/mike/following",
 					"host": [
 						"0",
 						"0",
@@ -195,7 +195,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/following_count",
+					"raw": "social.service.cn:30080/users/mike/following_count",
 					"host": [
 						"0",
 						"0",
@@ -218,7 +218,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/feed",
+					"raw": "social.service.cn:30080/users/mike/feed",
 					"host": [
 						"0",
 						"0",
@@ -250,7 +250,7 @@
 					}
 				},
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/posts",
+					"raw": "social.service.cn:30080/users/mike/posts",
 					"host": [
 						"0",
 						"0",
@@ -273,7 +273,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/posts",
+					"raw": "social.service.cn:30080/users/mike/posts",
 					"host": [
 						"0",
 						"0",
@@ -296,7 +296,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/posts/64fc29c7e327f10005bbf876",
+					"raw": "social.service.cn:30080/users/mike/posts/64fc29c7e327f10005bbf876",
 					"host": [
 						"0",
 						"0",
@@ -320,7 +320,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/posts_count",
+					"raw": "social.service.cn:30080/users/mike/posts_count",
 					"host": [
 						"0",
 						"0",
@@ -343,7 +343,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "0.0.0.0:4567/users/mike/nickname/michael",
+					"raw": "social.service.cn:30080/users/mike/nickname/michael",
 					"host": [
 						"0",
 						"0",

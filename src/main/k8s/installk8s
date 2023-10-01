@@ -1,0 +1,7 @@
+https://blog.csdn.net/zhangzhaokun/article/details/131452979
+
+ngix:
+https://developer.aliyun.com/article/1211835
+
+https://kubernetes.github.io/ingress-nginx/deploy/
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
