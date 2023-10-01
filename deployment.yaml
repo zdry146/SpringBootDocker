@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: socialserver
-          image: mike-virtual-machine1:5000/socialserver:v1
+          image: mike-virtual-machine1:5000/socialserver:v1.2
           ports:
             - containerPort: 8080
 

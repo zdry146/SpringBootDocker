@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "a3811d9d-53c7-4cae-92cf-5a35c7c3ef3d",
+		"name": "Mongo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var sequence = pm.globals.get(\"sequence\");\r",
+							"pm.globals.set(\"oldSequence\", sequence);\r",
+							"sequence = sequence + 1\r",
+							"pm.globals.set(\"sequence\", sequence);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"testuser{{sequence}}\"}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "0.0.0.0:4567/users",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/profile",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add follower",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/followers/testuser{{sequence}}",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"followers",
+						"testuser{{sequence}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete follower",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/testuser{{oldSequence}}/followers/testuser{{sequence}}",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"testuser{{oldSequence}}",
+						"followers",
+						"testuser{{sequence}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get followers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/followers",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"followers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get followers_count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/followers_count",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"followers_count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user following",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/following",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"following"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get following_count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/following_count",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"following_count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get feed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/feed",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"feed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put posts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\": \"post{{sequence}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/posts",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/posts",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete posts",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/posts/64fc29c7e327f10005bbf876",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"posts",
+						"64fc29c7e327f10005bbf876"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get posts_count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/posts_count",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"posts_count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add nickname",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/mike/nickname/michael",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"mike",
+						"nickname",
+						"michael"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

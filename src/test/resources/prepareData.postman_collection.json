@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "9d07070a-c981-4cb0-bcea-0d6a2e176d6a",
+		"name": "prepareData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var sequence = pm.globals.get(\"sequence\");\r",
+							"pm.globals.set(\"oldSequence\", sequence);\r",
+							"sequence = sequence + 1\r",
+							"pm.globals.set(\"sequence\", sequence);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"testuser{{sequence}}\"}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "0.0.0.0:4567/users",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add follower Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:4567/users/testuser{{oldSequence}}/followers/testuser{{sequence}}",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"testuser{{oldSequence}}",
+						"followers",
+						"testuser{{sequence}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put posts Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\": \"post test\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "0.0.0.0:4567/users/testuser{{sequence}}/posts",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4567",
+					"path": [
+						"users",
+						"testuser{{sequence}}",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
