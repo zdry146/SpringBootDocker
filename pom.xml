@@ -5,7 +5,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>socialserver</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
     <packaging>jar</packaging>
 
     <name>socialserver</name>
@@ -124,7 +124,7 @@
                 <configuration>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <imageTags>
-                        <imageTag>v1.4</imageTag>
+                        <imageTag>v1.5</imageTag>
                     </imageTags>
                     <dockerHost>http://10.0.0.10:2375</dockerHost>
 

@@ -110,7 +110,7 @@ public class SocialService {
 	}
 
 	//Change nickname
-	@PutMapping("/users/{userName}/posts/{postId}")
+	@PutMapping("/users/{userName}/nickname/{nickName}")
 	public String changeNickname(@PathVariable String userName, @PathVariable String nickName, HttpServletResponse res) {
 		return userRoutes.changeNickname(userName, nickName, res);
 	}

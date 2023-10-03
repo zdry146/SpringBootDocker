@@ -180,8 +180,8 @@ public class UserDAL {
 
 				if(originalName == null){
 					Document changes = new Document(ORIGINAL_NAME, "$_id")
-					.append(SCHEMA_VERSION, new Document("$max", Arrays.asList("$schemaVersion", 4))).append(FOLLOW_SIZE,
-							new Document("$size", eq("$ifNull", Arrays.asList("$follows", Arrays.asList()))));
+					.append(SCHEMA_VERSION, new Document("$max", Arrays.asList("$schemaVersion", 4)))
+					.append(FOLLOW_SIZE, new Document("$size", eq("$ifNull", Arrays.asList("$follows", Arrays.asList()))));
 
 					List<Document> updates = Arrays.asList(new Document("$addFields", changes));
 					UpdateResult u = userCollection.updateOne(eq(_ID, username), updates);

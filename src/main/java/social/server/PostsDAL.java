@@ -144,7 +144,7 @@ public class PostsDAL {
 	}
 
 	public PostsDAL(MongoClient mongoClient) {
-		logger = LoggerFactory.getLogger(WorkerTask.class);
+		logger = LoggerFactory.getLogger(PostsDAL.class);
 		this.mongoClient = mongoClient;
 		postCollection = mongoClient.getDatabase("social").getCollection(POSTS);
 		postBuckets = mongoClient.getDatabase("social").getCollection(POSTBUCKETS);
