@@ -1,6 +1,6 @@
 https://blog.csdn.net/zhangzhaokun/article/details/131452979
 
-ngix:
+ingress-ngix:
 https://developer.aliyun.com/article/1211835
 
 https://kubernetes.github.io/ingress-nginx/deploy/
