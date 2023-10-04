@@ -1,0 +1,32 @@
+# prepareData
+
+###
+# @name create user Copy
+//< {%
+    // TODO: migrate to HTTP Client Pre-request handler API
+    // var sequence = pm.globals.get("sequence");
+    
+    // pm.globals.set("oldSequence", sequence);
+    
+    // sequence = sequence + 1
+    
+    // pm.globals.set("sequence", sequence);
+//%}
+POST localhost:80/users
+Content-Type: application/json
+{"username": "testuser{{sequence}}"}
+
+
+
+###
+# @name add follower Copy
+PUT localhost:80/users/testuser{{oldSequence}}/followers/testuser{{sequence}}
+
+###
+# @name put posts Copy
+POST localhost:80/users/testuser{{sequence}}/posts
+Content-Type: application/json
+
+{
+  "text": "post test"
+}

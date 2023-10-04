@@ -1,0 +1,86 @@
+# Mongo
+
+###
+# @name create user
+//< {%
+    // TODO: migrate to HTTP Client Pre-request handler API
+    // var sequence = pm.globals.get("sequence");
+    
+    // pm.globals.set("oldSequence", sequence);
+    
+    // sequence = parseInt(sequence) + 1
+    
+    // pm.globals.set("sequence", sequence);
+//%}
+POST localhost:80/users
+Content-Type: application/json
+
+{"username": "testuser{{sequence}}"}
+
+
+
+###
+# @name get user
+
+GET localhost:80/users/mike/profile
+
+###
+# @name add follower
+
+PUT localhost:80/users/mike/followers/testuser{{sequence}}
+
+###
+# @name delete follower
+
+DELETE localhost:80/users/testuser{{oldSequence}}/followers/testuser{{sequence}}
+
+###
+# @name get followers
+
+GET localhost:80/users/mike/followers
+
+###
+# @name get followers_count
+
+GET localhost:80/users/mike/followers_count
+
+###
+# @name user following
+
+GET localhost:80/users/mike/following
+
+###
+# @name get following_count
+
+GET localhost:80/users/mike/following_count
+
+###
+# @name get feed
+
+GET localhost:80/users/mike/feed
+
+###
+# @name put posts
+POST localhost:80/users/mike/posts
+Content-Type: application/json
+
+{"text": "post{{sequence}}"}
+
+###
+# @name get posts
+
+GET localhost:80/users/mike/posts
+
+###
+# @name delete posts
+
+DELETE localhost:80/users/mike/posts/64fc29c7e327f10005bbf876
+
+###
+# @name get posts_count
+
+GET localhost:80/users/mike/posts_count
+
+###
+# @name add nickname
+PUT localhost:80/users/mike/nickname/mike
