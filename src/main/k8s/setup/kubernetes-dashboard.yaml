@@ -189,8 +189,10 @@ metadata:
     app.kubernetes.io/version: "v1.0.0"
 spec:
   ports:
-    - name: web
-      port: 8000
+    - name: tcp
+      port: 443
+      targetPort: 443
+  type: ClusterIP
   selector:
     app.kubernetes.io/name: kubernetes-dashboard-web
     app.kubernetes.io/part-of: kubernetes-dashboard
@@ -209,8 +211,10 @@ metadata:
     app.kubernetes.io/version: "v1.0.0"
 spec:
   ports:
-    - name: api
-      port: 9000
+    - name: tcp
+      port: 443
+      targetPort: 443
+  type: ClusterIP
   selector:
     app.kubernetes.io/name: kubernetes-dashboard-api
     app.kubernetes.io/part-of: kubernetes-dashboard
@@ -252,10 +256,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - kubernetes.dashboard
+        - kubernetes-dashboard
       secretName: kubernetes-dashboard-certs
   rules:
-    - host: kubernetes.dashboard
+    - host: kubernetes-dashboard
       http:
         paths:
           - path: /
@@ -264,16 +268,14 @@ spec:
               service:
                 name: kubernetes-dashboard-web
                 port:
-#                  name: web
-                  number: 8000
+                  number: 443
           - path: /api
             pathType: Prefix
             backend:
               service:
                 name: kubernetes-dashboard-api
                 port:
-#                  name: api
-                  number: 9000
+                  number: 443
 
 ---
 
@@ -314,11 +316,11 @@ spec:
           image: docker.io/kubernetesui/dashboard-api:v1.0.0
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 9000
+            - containerPort: 443
               name: api
               protocol: TCP
           args:
-            - --enable-insecure-login
+#            - --enable-insecure-login
             - --namespace=kubernetes-dashboard
           volumeMounts:
             # Create on-disk volume to store exec logs
@@ -369,7 +371,7 @@ spec:
           image: docker.io/kubernetesui/dashboard-web:v1.0.0
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8000
+            - containerPort: 443
               name: web
               protocol: TCP
           volumeMounts:
