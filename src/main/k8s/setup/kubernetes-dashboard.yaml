@@ -191,7 +191,7 @@ spec:
   ports:
     - name: tcp
       port: 443
-      targetPort: 443
+      targetPort: 8000
   type: ClusterIP
   selector:
     app.kubernetes.io/name: kubernetes-dashboard-web
@@ -213,7 +213,7 @@ spec:
   ports:
     - name: tcp
       port: 443
-      targetPort: 443
+      targetPort: 9000
   type: ClusterIP
   selector:
     app.kubernetes.io/name: kubernetes-dashboard-api
@@ -316,7 +316,7 @@ spec:
           image: docker.io/kubernetesui/dashboard-api:v1.0.0
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 443
+            - containerPort: 9000
               name: api
               protocol: TCP
           args:
@@ -371,7 +371,7 @@ spec:
           image: docker.io/kubernetesui/dashboard-web:v1.0.0
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 443
+            - containerPort: 8000
               name: web
               protocol: TCP
           volumeMounts:
