@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: socialserver
+  namespace: "default"
 spec:
   replicas: 3
   selector:
@@ -11,12 +12,25 @@ spec:
     metadata:
       labels:
         app: socialserver
+        version: "1.0.0"
     spec:
       containers:
         - name: socialserver
-          image: mike-virtual-machine1:5000/socialserver:v1.5
+          image: mike-virtual-machine1:5000/socialserver:v1.6
           ports:
             - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /liveness
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 60
+          livenessProbe:
+            httpGet:
+              path: /liveness
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 60
 
 ---
 apiVersion: v1

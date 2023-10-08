@@ -394,4 +394,7 @@ public class APIRoutes {
     }
 
 
+    public String liveness(HttpServletResponse res) {
+        return new Document("ok", true).toJson();
+    }
 }

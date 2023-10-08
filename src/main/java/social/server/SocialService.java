@@ -2,6 +2,7 @@ package social.server;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -34,6 +35,11 @@ public class SocialService {
 		StartWorkers(mongoClient);
 
 	}
+	@GetMapping("/liveness")
+	public String liveness(HttpServletResponse res) {
+		return userRoutes.liveness(res);
+	}
+
 	//Create a new user
 	@PostMapping("/users")
 	public String getUser(@RequestBody String body, HttpServletResponse res) {
