@@ -27,3 +27,6 @@ Next steps:
     * https://istio.io/latest/docs/releases/supported-releases/
     * https://istio.io/latest/news/security/
     * https://istio.io/latest/docs/ops/best-practices/security/
+
+kubectl label namespace default istio-injection=enabled --overwrite
+kubectl label namespace default istio-injection=disabled  --overwrite

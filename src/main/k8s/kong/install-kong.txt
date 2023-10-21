@@ -1,0 +1,5 @@
+https://zhuanlan.zhihu.com/p/136411744
+
+https://docs.konghq.com/gateway/latest/install/kubernetes/helm-quickstart/
+
+https://medium.com/@nikhil.nagarajappa/deploying-kong-db-less-and-konga-via-raedy-to-use-yaml-files-38dce989674d

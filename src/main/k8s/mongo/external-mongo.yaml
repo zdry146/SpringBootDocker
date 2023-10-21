@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: external-apps
+  labels:
+    istio-injection: disabled
+---
 kind: Endpoints
 apiVersion: v1
 metadata:
@@ -60,4 +67,5 @@ metadata:
 spec:
   ports:
     - port: 27017
+
 

@@ -4,7 +4,8 @@ metadata:
   name: social.service.cn
   namespace: "default"
 spec:
-  ingressClassName: nginx
+  #  ingressClassName: nginx
+  ingressClassName: kong
   rules:
     - host: social.service.cn
       http:
