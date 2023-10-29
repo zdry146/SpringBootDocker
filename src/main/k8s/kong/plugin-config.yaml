@@ -1,0 +1,36 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: rate-limiting-example
+plugin: rate-limiting
+config:
+  second: 5
+  hour: 10000
+  policy: local
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: proxy-cache-example
+plugin: proxy-cache
+config:
+  response_code:
+    - 200
+  request_method:
+    - GET
+    - HEAD
+  content_type:
+    - text/plain
+    - application/json
+  cache_ttl: 300
+  strategy: memory
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: upstream-timeout-example
+plugin: upstream-timeout
+config:
+  connect_timeout: 2000
+  send_timeout: 5000
+  read_timeout: 5000

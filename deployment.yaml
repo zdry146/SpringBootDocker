@@ -12,7 +12,42 @@ spec:
     metadata:
       labels:
         app: socialserver
-        version: "1.0.0"
+        version: v1
+    spec:
+      containers:
+        - name: socialserver
+          image: mike-virtual-machine1:5000/socialserver:v1.6
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /liveness
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 60
+          livenessProbe:
+            httpGet:
+              path: /liveness
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 60
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: socialserver-v2
+  namespace: "default"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: socialserver
+  template:
+    metadata:
+      labels:
+        app: socialserver
+        version: v2
     spec:
       containers:
         - name: socialserver
@@ -37,6 +72,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: socialserver
+  annotations:
+    konghq.com/plugins: ""
+#    konghq.com/plugins: rate-limiting-example, proxy-cache-example, upstream-timeout-example
 spec:
   selector:
     app: socialserver

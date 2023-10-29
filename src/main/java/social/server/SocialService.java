@@ -20,8 +20,8 @@ public class SocialService {
 	static final String version = "0.0.1";
 	Logger logger;
 
-	String URI = "mongodb://mike-virtual-machine1:27017,mike-virtual-machine2:27017,mike-virtual-machine3:27017/?replicaSet=rs0&retryWrites=true&w=majority&wtimeoutMS=3000&readConcernLevel=majority";
-	//String URI = "mongodb://mongo1.external-apps.svc.cluster.local:27017,mongo2.external-apps.svc.cluster.local:27017,mongo3.external-apps.svc.cluster.local:27017/?replicaSet=rs0&retryWrites=true&w=majority&wtimeoutMS=3000&readConcernLevel=majority";
+	//String URI = "mongodb://mike-virtual-machine1:27017,mike-virtual-machine2:27017,mike-virtual-machine3:27017/?replicaSet=rs0&retryWrites=true&w=majority&wtimeoutMS=3000&readConcernLevel=majority";
+	String URI = "mongodb://mongo1.external-apps.svc.cluster.local:27017,mongo2.external-apps.svc.cluster.local:27017,mongo3.external-apps.svc.cluster.local:27017/?replicaSet=rs0&retryWrites=true&w=majority&wtimeoutMS=3000&readConcernLevel=majority";
 
 	MongoClient mongoClient = new MongoClient(new MongoClientURI(URI));
 	APIRoutes userRoutes = new APIRoutes(mongoClient);

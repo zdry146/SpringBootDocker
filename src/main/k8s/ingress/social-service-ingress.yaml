@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: social.service.cn
   namespace: "default"
+#  annotations:
+#    konghq.com/plugins: rate-limiting-example
+  #    konghq.com/plugins: rate-limiting-example, proxy-cache-example, upstream-timeout-example
+
 spec:
   #  ingressClassName: nginx
   ingressClassName: kong

@@ -1,0 +1,21 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: postgresql
+  namespace: external-apps
+subsets:
+  - addresses:
+      - ip: 10.0.0.10
+    ports:
+      - port: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  # 此处 metadata.name 的值要和 endpoints 中的 metadata.name 的值保持一致
+  name: postgresql
+  namespace: external-apps
+spec:
+  ports:
+    - port: 5432
+

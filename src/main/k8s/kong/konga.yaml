@@ -56,10 +56,10 @@ spec:
           env:
             - name: KONGA_BACKEND_URL
               value: "http://kong-admin:8444"
-#            - name: NO_AUTH
-#              value: "false"
-#            - name: DB_ADAPTER
-#              value: "mysql"
-#            - name: DB_URI
-#              value: "mysql://admin:admin@172.80.1.100/konga"
+            - name: NO_AUTH
+              value: "true"
+            - name: DB_ADAPTER
+              value: "postgres"
+            - name: DB_URI
+              value: "postgresql://konga:konga@postgresql.external-apps.svc.cluster.local:5432/konga"
       nodeName: mike-virtual-machine1
